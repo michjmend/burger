@@ -3,9 +3,9 @@ Node Express Handlebars
 
 [HEROKU LINK](https://burger-devouring-page.herokuapp.com/)
 
-### Overview
+## Overview
 
-In this assignment I've created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!) :yum:
+### In this assignment I've created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!) :yum:
 
 * Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat :fork_and_knife:
 
@@ -15,4 +15,4 @@ In this assignment I've created a burger logger with MySQL, Node, Express, Handl
 
 * Your app will store every burger in a database, whether devoured or not :floppy_disk:
 
-Author: Michelle Mendieta
+## Author: Michelle Mendieta
