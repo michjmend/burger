@@ -1,10 +1,10 @@
 // Inside the burgers_controller.js file, import the following: this is our router controller and will identify our end points
 // Express
 var express = require("express");
-// burger.js
-var burger = require("../models/burger.js");
 // Create the router for the app, and export the router at the end of your file.
 var router = express.Router();
+// burger.js
+var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
@@ -30,7 +30,7 @@ router.get("/", function(req, res) {
 
       console.log("condition", condition);
       burger.updateOne({ devoured: req.body.devoured }, condition, function(result) {
-        if ((result, changedRows === 0)) {
+        if (result.changedRows === 0) {
           return res.status(404).end();
         } else {
           res.status(200).end();
@@ -38,12 +38,11 @@ router.get("/", function(req, res) {
       });
     });
 
-    router.deleteOne(condition, function(req, res) {
+    router.delete("/api/burgers/:id", function(req, res) {
       var condition = "id = " + req.params.id;
-      console.log("condition", condition);
 
       burger.deleteOne(condition, function(result) {
-        if ((result, changedRows === 0)) {
+        if (result.changedRows === 0) {
           return res.status(404).end();
         } else {
           res.status(200).end();
@@ -51,6 +50,6 @@ router.get("/", function(req, res) {
       });
     });
   });
-
+// console.log(deleteOne);
     // Export routes for server.js to use.
 module.exports = router;
