@@ -21,7 +21,7 @@ router.get("/", function(req, res) {
       [req.body.burger_name, req.body.devoured],
       function(result) {
         // parse the json here
-        res.json({ id: result.insertId });
+        res.redirect("/")
       });
     });
 
