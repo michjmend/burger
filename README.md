@@ -1,6 +1,8 @@
 # :hamburger: EAT :hamburger: DA :hamburger: BURGER :hamburger:
 Node Express Handlebars
 
+buttons still dont work. tried many ways to get it up and running. going to ask someone to look at my code tuesday.
+
 [HEROKU LINK](https://burger-devouring-page.herokuapp.com/)
 
 ## Overview

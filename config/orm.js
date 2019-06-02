@@ -4,8 +4,8 @@ var connection = require("../config/connection.js");
 // selectAll(), insertOne(), updateOne()
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+  selectAll: function(cb) {
+    var queryString = "SELECT * FROM burgers";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -13,11 +13,11 @@ var orm = {
       cb(result);
     });
   },
-  insertOne: function(table, cols, vals, cb) {
+  insertOne: function(burger, cb) {
     var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?, 0)";
     console.log(queryString);
 
-    connection.query(queryString, vals, function(err, result) {
+    connection.query(queryString, [burger], function(err, result) {
       if (err) {
         throw err;
       }
@@ -25,7 +25,7 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  updateOne: function(table, objColVals, condition, cb) {
+  updateOne: function(id, cb) {
     var queryString = "UPDATE burgers SET devoured = 1 WHERE id = ?";
     console.log(queryString);
     connection.query(queryString, function(err, result) {
@@ -36,19 +36,19 @@ var orm = {
       cb(result);
     });
   },
-  deleteOne: function(table, condition, cb) {
-    var queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
+//   deleteOne: function(table, condition, cb) {
+//     var queryString = "DELETE FROM " + table;
+//     queryString += " WHERE ";
+//     queryString += condition;
 
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  }
+//     connection.query(queryString, function(err, result) {
+//       if (err) {
+//         throw err;
+//       }
+//       cb(result);
+//     });
+//   }
 };
 
 // Export the ORM object in module.exports.
-module.exports = orm;
+module.exports = orm
