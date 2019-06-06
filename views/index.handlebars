@@ -17,7 +17,7 @@
       <ul>
         {{#each burgers}}
         {{#unless devoured}}
-          <h5>{{burger_name}} <button type="submit" class="devourBtn btn btn-warning" data-id="{{id}}" data-devourBurger="{{complete}}" >Devour <i class="fas fa-hamburger"></i>!</button></h5>
+          <h5>{{burger_name}} <button class="devourBtn btn btn-warning" data-id="{{id}}">Devour <i class="fas fa-hamburger"></i>!</button></h5>
         {{/unless}}
         {{/each}}
       </ul>

@@ -1,15 +1,15 @@
+$(document).on("click", ".submitBtn", burgerItUp)
 //function to add a burger using submit button
-$(function() {
-  $(".form-control").on("submit", function(event) {
+function burgerItUp() {
     event.preventDefault();
   var name = $("#burger-name").val().trim()
   var burger = {
     burger_name: name,
     devoured: 0
   }
+  console.log(burger)
   //start ajax to send a request
-  $.ajax({
-    URL: "/api/burgers",
+  $.ajax("/api/burgers", {
     type: "POST",
     data: burger
   }).then(
@@ -17,17 +17,19 @@ $(function() {
         console.log("added anotha one");
         location.reload();
     });
-  };
-});
+  }
 //when burger is pushed up, this button will devour it sending it to the devoured side
-$(".devourBtn").on("click", function(event) {
+$(document).on("click", ".devourBtn", devour)
+$(document).on("click", ".unDevourBtn", unDevour)
+
+
+
+function devour() {
   event.preventDefault();
-
-    var id = $(this).attr("data-id");
-    var devourBurger = $(this).attr("data-devourBurger");
-
+  console.log(this)
+    var id = $(this).data("id");
     var devouredBurgers = {
-      devoured: devourBurger
+      devoured: 1
     };
     console.log(id);
     console.log(devouredBurgers);
@@ -37,12 +39,34 @@ $(".devourBtn").on("click", function(event) {
       data: devouredBurgers
     }).then(
       function() {
-        console.log("changed devour to", devourBurger);
+
         // Reload the page to get the updated list
         location.reload();
       }
     );
-  });
+}
+
+
+function unDevour() {
+  event.preventDefault();
+  console.log(this)
+    var id = $(this).data("id");
+    var devouredBurgers = {
+      devoured: 0
+    };
+    console.log(id);
+    console.log(devouredBurgers);
+    // Send the PUT request using ajax.
+    $.ajax("/api/burgers/" + id, {
+      type: "PUT",
+      data: devouredBurgers
+    }).then(
+      function() {
+
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
 }
 
 //not enough time to figure out additional buttons
