@@ -1,52 +1,54 @@
-{{!-- Setup the index.handlebars to have the template that Handlebars can render onto. --}}
 {{!-- header --}}
-<div class="container">
-  <div class="jumbotron text-center">
-    <h1 class="display-4">EAT - DA - BURGER</h1>
-    <h3 class="lead">Order a burger of your choice! And then DEVOUR IT!!</h3>
-    <hr class="my-4">
+<header>
+  <div class="text-center">
+    <span id="line">E A T - D A - B U R G E R</span>
   </div>
-</div>
+</header>
 {{!-- middle section --}}
 {{!-- container to push info into --}}
-<div class="container">
-  <div class="row">
-  {{!-- ready column --}}
-    <div class="ready-burger col">
-      <h3><u>READY TO DEVOUR</u> <i class="fas fa-hamburger"></i></h3>
-      <ul>
-        {{#each burgers}}
-        {{#unless devoured}}
-          <h5>{{burger_name}} <button class="devourBtn btn btn-warning" data-id="{{id}}">Devour <i class="fas fa-hamburger"></i>!</button></h5>
-        {{/unless}}
-        {{/each}}
-      </ul>
+<div id="middle" class="container-fluid">
+   <h3 class="text-center">Order a burger of your choice! And then DEVOUR IT!!</h3>
+    {{!-- <div class="container"> --}}
+    <div class="row">
+      {{!-- ready column --}}
+      <div class="col ready-burger rounded card">
+        <h3><u>READY TO DEVOUR</u> <i class="fas fa-hamburger"></i></h3>
+        <ul>
+          {{#each burgers}}
+          {{#unless devoured}}
+          <h6><i class="fas fa-circle"></i> {{burger_name}} <button class="devourBtn btn btn-success"
+              data-id="{{id}}">Devour <i class="fas fa-hamburger"></i>!</button></h6>
+          {{/unless}}
+          {{/each}}
+        </ul>
+      </div>
+      {{!-- image of burger column --}}
+      <div class="col text-center">
+        <img src="https://media.giphy.com/media/l0K4lPx8bvdbFMdGM/giphy.gif" height="auto" width="50%" alt="burger"/>
+      </div>
+      {{!-- devoured burger cloumn --}}
+      <div class="col devoured-burger rounded card">
+        <h3><u>DEVOURED</u> <i class="far fa-smile-beam"></i></h3>
+        <ul>
+          {{#each burgers}}
+          {{#if devoured}}
+          <h6><i class="fas fa-check-circle"></i> {{burger_name}} <button class="unDevourBtn btn btn-danger"
+              data-id="{{id}}">Undevour <i class="fas fa-hamburger"></i>!</button></h6>
+          {{/if}}
+          {{/each}}
+        </ul>
+      </div>
     </div>
-  {{!-- image of burger column --}}
-    <div class="col text-center">
-      <img src="https://media.giphy.com/media/JteZf56ZXsJl6/giphy.gif" height="200px" width="auto" alt="burger" />
-    </div>
-  {{!-- devoured burger cloumn --}}
-    <div class="devoured-burger col">
-      <h3><u>DEVOURED</u> <i class="far fa-smile-beam"></i></h3>
-      <ul>
-        {{#each burgers}}
-        {{#if devoured}}
-        <h5><i class="fas fa-check-circle"></i> {{burger_name}}</h5>
-        {{/if}}
-        {{/each}}
-      </ul>
-    </div>
-  </div>
+
 </div>
-{{!-- footer --}}
 {{!-- Create a button in index.handlebars that will submit the user input into the database. --}}
-<div class="row">
+<div id="textbox" class="row">
   <div class="col-12 text-center">
-    <h3>Order your burger here!</h3>
+    Order your burger here!
     <form class="create-form">
-      <div class="input-group mb-3">
-        <input id="burger-name" type="text" class="form-control" placeholder="What kinda burger you feelin'?" aria-label="burger_name" aria-describedby="button-addon2">
+      <div id="textFo" class="input-group mb-3 mt-4">
+        <input id="burger-name" type="text" class="form-control" placeholder="What kinda burger you feelin'?"
+          aria-label="burger_name" aria-describedby="button-addon2">
         <div class="input-group-append">
           <button class="submitBtn btn btn-warning" type="submit" id="button-addon2">BURGER IT UP</button>
         </div>
@@ -54,3 +56,10 @@
     </form>
   </div>
 </div>
+</div>
+{{!-- footer --}}
+<footer id="footer" class="fixed-bottom">
+  <div>
+    <h4 class="text-center">Copyright &copy; michjmend 2019</h4>
+  </div>
+</footer>

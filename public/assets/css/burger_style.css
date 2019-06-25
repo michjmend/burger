@@ -1,0 +1,43 @@
+header, footer {
+  background-color: #e2b807;
+}
+
+header {
+  padding: 40px;
+}
+
+#line {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 90px;
+}
+
+#middle {
+  font-family: 'Righteous', cursive;
+  background-color: #db2c2ca6;
+  padding: 40px;
+}
+
+img {
+  margin: 3%;
+}
+
+.ready-burger, .devoured-burger, img {
+  margin: 1%;
+}
+
+#textbox {
+  font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  background-color: #28a746b2;
+  margin-bottom: 90px;
+  padding: 40px;
+}
+
+#textFo {
+
+}
+
+footer {
+  padding: 40px;
+  font-family: 'Righteous', cursive;
+}
